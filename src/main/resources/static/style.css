@@ -1,0 +1,95 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background: #f5f6f8;
+    color: #222;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+main {
+    max-width: 650px;
+    margin: 0 auto;
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #00000010;
+}
+
+h1 {
+    margin-bottom: 8px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+section {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font: inherit;
+}
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font: inherit;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+#logout-button {
+    background: #555;
+}
+
+#admin-button {
+    margin-bottom: 16px;
+}
+
+#todo-list {
+    padding-left: 20px;
+}
+
+#todo-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#message:not(:empty) {
+    padding: 10px;
+    background: #eff6ff;
+    border-radius: 6px;
+}
+
+[hidden] {
+    display: none !important;
+}
