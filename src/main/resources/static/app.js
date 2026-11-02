@@ -13,15 +13,27 @@ async function render() {
 
     try {
         // TODO Exercise 6:
+
         // Call getMe()
-        // Not logged in: show only createLogin(render)
-        // Logged in: also show createUserInfo(me, render), and pass me to createTodos(me)
+        const me = await getMe();
+
+        if (!me) {
+            // Not logged in: show only createLogin(render)
+            app.append(createLogin(render));
+            return;
+        }
+
+
+
+
 
         const heading = document.createElement("h1");
         heading.textContent = "My Todos";
 
         app.append(
             heading,
+            // Logged in: also show createUserInfo(me, render), and pass me to createTodos(me)
+            createUserInfo(me, render),
             createTodos()
         );
 

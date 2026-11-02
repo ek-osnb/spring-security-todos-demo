@@ -2,11 +2,7 @@ package ek.osnb.demo.todo;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -28,11 +24,15 @@ class TodoController {
 
     // TODO Exercise 3: Save the todo with the logged-in user as its owner
     // A form post (title=...), just like the login form
+
+    record CreateTodoRequest(String title) {}
+
+
     @PostMapping("/api/todos")
     @ResponseStatus(HttpStatus.CREATED)
-    Todo addTodo(@RequestParam String title, Authentication auth) {
+    Todo addTodo(@RequestBody CreateTodoRequest createTodoRequest, Authentication auth) {
 //        throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
-        Todo newTodo = new Todo(title, auth.getName());
+        Todo newTodo = new Todo(createTodoRequest.title(), auth.getName());
         return todos.save(newTodo);
     }
 
