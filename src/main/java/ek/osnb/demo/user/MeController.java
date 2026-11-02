@@ -13,7 +13,7 @@ import java.util.Objects;
 @RequestMapping("/api/me")
 class MeController {
 
-    record MeResponse(String name, List<String> roles) {}
+    record MeResponse(String username, List<String> roles) {}
 
     @GetMapping
     MeResponse me(Authentication auth) {
